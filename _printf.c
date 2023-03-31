@@ -12,7 +12,7 @@ int _printf(char *format, ...)
 	char buffer[2048];
 	int (*con)(va_list, char *, int);
 
-	if (format == NULL || (format == [0] == '%' && format [1] == '\0')
+	if (format == NULL || (format[0] == '%' && format [1] == '\0')
 			|| (format[0] == '\\' && format[1] == '\0'))
 		return (-1);
 	va_start(ls, format);
@@ -25,7 +25,7 @@ int _printf(char *format, ...)
 		}
 		con = get_print_case(&(format[i + 1]));
 		if (con != NULL)
-			print_len = con(ap, &buffer[print_len], print_len);
+			print_len = con(ls, &buffer[print_len], print_len);
 		else
 		{
 			buffer[print_len] = format[1];

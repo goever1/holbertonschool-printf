@@ -9,63 +9,30 @@
  */
 
 int uns_case(va_list ap, char *buff, int print_len)
-
+{
 /**
  *The function uns_case takes in a variable argument list, a
  *character buffer, and the current position in the buffer.
  */
 	char *s;
-char *aux;
-int s_len, num;
-/**
- *Declares three variables: s and aux are character pointers,
- *and s_len and num are integers.
- */
-num = va_arg(ap, int);
-/**
-*Extracts the next argument from the variable argument list of
-*type int and assigns it to the variable num.
-*/
-aux = malloc(sizeof(char) * 35);
-if (aux == NULL)
-	return (1);
-/**
- *Allocates memory for a character array of size 35 and assigns the pointer to
- *aux. If the memory allocation fails, the function returns 1.
- */
-aux = _utoa(num, aux, 10);
-/**
- *Converts the integer num to an unsigned decimal integer and stores the
- *resulting string in aux.
- */
-s_len = _strlen(aux);
-s = malloc((sizeof(char) * s_len) + 1);
-if (s == NULL)
-	return (1);
-/**
-*Allocates memory for a character array of size s_len + 1 and assigns the
-*pointer to s. If the memory allocation fails, the function returns 1.
-*/
-_strcpy(s, aux);
-/**
- *Copies the string in aux to the newly allocated memory in s.
- */
-print_len = replace(buff, s, print_len);
-/**
- *Replaces the %u format specifier in buff with the string in s and update
- *the print_len variable to the new position in buff.
- */
-free(s);
-free(aux);
-/**
- *Frees the dynamically allocated memory for s and aux.
- */
-return (print_len);
-/**
- *Returns the new position in buff after the string has been printed.
- */
+	char *aux;
+	int s_len, num;
+	
+	num = va_arg(ap, int);
+	aux = malloc(sizeof(char) * 35);
+	if (aux == NULL)
+		return (1);
+	aux = _utoa(num, aux, 10);
+	s_len = _strlen(aux);
+	s = malloc((sizeof(char) * s_len) + 1);
+	if (s == NULL)
+		return (1);
+	_strcpy(s, aux);
+	print_len = replace(buff, s, print_len);
+	free(s);
+	free(aux);
+	return (print_len);
 }
-
 /**
  * oct_case - function for octal case
  * @ap: Unsigned
@@ -77,58 +44,26 @@ return (print_len);
 int oct_case(va_list ap, char *buff, int print_len)
 {
 	char *s;
-	/**
-	 *pointer to store the octal string
-	 */
 	char *aux;
 /**
  *pointer to store the intermediate result of _utoa function
  */
 	int s_len, num;
 
-/**
- *s_len stores the length of the octal string,
- *num stores the decimal integer argument
- */
-
 	num = va_arg(ap, int);
 	aux = malloc(sizeof(char) * 35);
-/**
- *allocate memory for aux
- */
 	if (aux == NULL)
 		return (1);
 	aux = _utoa(num, aux, 8);
-/**
- *convert decimal integer argument to octal string
- */
 	s_len = _strlen(aux);
 	s = malloc((sizeof(char) * s_len) + 1);
-	/**
-	 *allocate memory for s
-	 */
 	if (s == NULL)
 		return (1);
 	_strcpy(s, aux);
-	/**
-	 *copy the octal string to s
-	 */
 	print_len = replace(buff, s, print_len);
-	/**
-	 *insert s into buffer string at print_len position
-	 */
 	free(s);
-	/**
-	 *free memory allocated for s
-	 */
 	free(aux);
-	/**
-	 *free memory allocated for aux
-	 */
 	return (print_len);
-	/**
-	 *return updated position of buffer string
-	 */
 }
 /**
  * lhex_case - function for lowercase hex case
@@ -138,6 +73,7 @@ int oct_case(va_list ap, char *buff, int print_len)
  * Return: Last position on buff
  */
 int lhex_case(va_list ap, char *buff, int print_len)
+{
 	char *s;
 char *aux;
 int s_len, num;

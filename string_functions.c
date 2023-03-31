@@ -62,7 +62,7 @@ char *_rot13(char *str)
 		for (j = 0; chs[j]; ++j)
 		{
 			if (str[i] == chs[j])
-			{stri[i] = rot[j];
+			{str[i] = rot[j];
 				break;
 			}
 		}
