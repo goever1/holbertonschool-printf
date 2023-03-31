@@ -159,7 +159,7 @@ int uhex_case(va_list ls, char *buff, int print_len)
 /**
  *convert the unsigned int to hexadecimal
  */
-	aux = _utoah(num, aux, 16);
+	aux = _utoa(num, aux, 16);
 /**
  *get the length of the hexadecimal string
  */
