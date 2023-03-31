@@ -1,5 +1,6 @@
-#e - function for c case
+#include "main.h"
 /**
+ *c_case - function for c case
 * @ls: Character
 * @buff: buffer
 * @print_len: Actual position of buff
