@@ -2,13 +2,13 @@
 
 /**
  * uns_case - function for unsigned integer
- * @ap: Unsigned
+ * @ls: Unsigned
  * @buff: buffer
  * @print_len : actual position of buff
  * Return: Last position on buff
  */
 
-int uns_case(va_list ap, char *buff, int print_len)
+int uns_case(va_list ls, char *buff, int print_len)
 
 /**
  *The function uns_case takes in a variable argument list, a
@@ -68,13 +68,13 @@ return (print_len);
 
 /**
  * oct_case - function for octal case
- * @ap: Unsigned
+ * @ls: Unsigned
  * @buff: buffer
  * @print_len : actual position of buff
  * Return: Last position on buff
  */
 
-int oct_case(va_list ap, char *buff, int print_len)
+int oct_case(va_list ls, char *buff, int print_len)
 {
 	char *s;
 	/**
@@ -91,7 +91,7 @@ int oct_case(va_list ap, char *buff, int print_len)
  *num stores the decimal integer argument
  */
 
-	num = va_arg(ap, int);
+	num = va_arg(ls, int);
 	aux = malloc(sizeof(char) * 35);
 /**
  *allocate memory for aux
@@ -132,12 +132,12 @@ int oct_case(va_list ap, char *buff, int print_len)
 }
 /**
  * lhex_case - function for lowercase hex case
- * @ap: Unsigned
+ * @ls: Unsigned
  * @buff: buffer
  * @print_len : actual position of buff
  * Return: Last position on buff
  */
-int lhex_case(va_list ap, char *buff, int print_len)
+int lhex_case(va_list ls, char *buff, int print_len)
 	char *s;
 char *aux;
 int s_len, num;
@@ -145,7 +145,7 @@ int s_len, num;
  *Declaring variables s and aux as character pointers, s_len as an integer,
 	*and num as an integer to hold the value from the va_list.
 */
-num = va_arg(ap, int);
+num = va_arg(ls, int);
 /**
  *Assigning the integer value from the va_list to the variable num.
  */aux = malloc(sizeof(char) * 35);
@@ -192,12 +192,12 @@ return (print_len);
 /**
  * uhex_case - function that converts an integer to an uppercase
  * hexadecimal representation.
- * @ap: Unsigned
+ * @ls: Unsigned
  * @buff: buffer
  * @print_len : actual position of buff
  * Return: Last position on buff
  */
-int uhex_case(va_list ap, char *buff, int print_len)
+int uhex_case(va_list ls, char *buff, int print_len)
 {
 	char *s;
 	char *aux;
@@ -206,7 +206,7 @@ int uhex_case(va_list ap, char *buff, int print_len)
 /**
  *get the unsigned int value from va_list
  */
-	num = va_arg(ap, int);
+	num = va_arg(ls, int);
 
 /**
  *allocate memory for aux
@@ -254,12 +254,12 @@ int uhex_case(va_list ap, char *buff, int print_len)
 }
 /**
  * S_case - function for S case
- * @ap: String
+ * @ls: String
  * @buff: buffer
  * @print_len: actual position of buff
  * Return: Last position on buff
  */
-int S_case(va_list ap, char *buff, int print_len)
+int S_case(va_list ls, char *buff, int print_len)
 {
 	char *s;
 	char *aux;

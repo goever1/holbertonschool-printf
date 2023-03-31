@@ -1,12 +1,12 @@
 #e - function for c case
 /**
-* @ap: Character
+* @ls: Character
 * @buff: buffer
 * @print_len: Actual position of buff
 * Return: Last position on buff
  */
 
-int c_case(va_list ap, char *buff, int print_len)
+int c_case(va_list ls, char *buff, int print_len)
 {
 	char *c;
 
@@ -22,7 +22,7 @@ int c_case(va_list ap, char *buff, int print_len)
 	/**
 	 *Return the current position of the buffer
 	 */
-	c[0] = va_arg(ap, int);
+	c[0] = va_arg(ls, int);
 /**
  *Retrieve the character argument from the argument lis
  */
@@ -54,19 +54,19 @@ int c_case(va_list ap, char *buff, int print_len)
 
 /**
  * s_case - function for s case
- * @ap: String
+ * @ls: String
  * @buff: buffer
  * @print_len: actual position of buff
  * Return: Last position on buff
  */
 
-int s_case(va_list ap, char *buff, int print_len)
+int s_case(va_list ls, char *buff, int print_len)
 {
 	char *s;
 	char *aux;
 	int s_len;
 
-	aux = va_arg(ap, char*);
+	aux = va_arg(ls, char*);
 	/**
 	 *Retrieve the string argument from the argument list
 	 */
@@ -115,19 +115,19 @@ int s_case(va_list ap, char *buff, int print_len)
 
 /**
  * dec_case - function for d case
- * @ap: Decimal
+ * @ls: Decimal
  * @buff: buffer
  * @print_len : actual position of buff
  * Return: Last position on buff
  */
 
-int dec_case(va_list ap, char *buff, int print_len)
+int dec_case(va_list ls, char *buff, int print_len)
 {
        char *s;
 	char *aux;
 	int s_len, num;
 
-	num = va_arg(ap, int);
+	num = va_arg(ls, int);
 	/**
 	 *Retrieve the integer argument from the argument list
 	 */
@@ -179,12 +179,12 @@ int dec_case(va_list ap, char *buff, int print_len)
 }
 	/**
 perc_case - function for % case
-@ap: Unused
+@ls: Unused
 @buff: buffer
 @print_len: Actual position of buff
 Return: Last position on buff
 	*/
-	int perc_case(va_list attribute((unused)) ap, char *buff, int print_len)
+	int perc_case(va_list attribute((unused)) ls, char *buff, int print_len)
 	{
 		/**
 		 *Allocate memory for a single character and a null terminator
@@ -216,12 +216,12 @@ Return: Last position on buff
 	/**
 
 bin_case - function for binary case
-@ap: integer to convert into binary
+@ls: integer to convert into binary
 @buff: buffer
 @print_len : actual position of buff
 Return: Last position on buff
 	*/
-	int bin_case(va_list ap, char *buff, int print_len)
+	int bin_case(va_list ls, char *buff, int print_len)
 	{
 		char *s;
 		char *aux;
@@ -229,7 +229,7 @@ Return: Last position on buff
 /**
  *Get the integer argument from the variable arguments list
  */
-		num = va_arg(ap, int);
+		num = va_arg(ls, int);
 
 /**
  *Allocate memory for a string representation of the binary number
