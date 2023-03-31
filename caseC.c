@@ -6,13 +6,13 @@
  * @print_len: position of buff
  * Return: Last position on buf
  */
-int r_case(va_list ap, char *buff, int print_len)
+int r_case(va_list ls, char *buff, int print_len)
 {
 	char *s;
 	char *aux;
 	int s_len;
 	
-	aux = va_arg(ap, char*);
+	aux = va_arg(ls, char*);
 	if (aux == NULL)
 		aux = "(null)";
 	s_len = _strlen(aux);
@@ -32,13 +32,13 @@ int r_case(va_list ap, char *buff, int print_len)
  * @print_len: position fo buff
  * Return: last position on buff
  */
-int R_case(va_list ap, char *buff, int print_len)                                                                                                                                               
+int R_case(va_list ls, char *buff, int print_len)                                                                                                                                               
 {
 	char *s;
 	char *aux;
 	int s_len;
 	
-	aux = va_arg(ap, char*);
+	aux = va_arg(ls, char*);
 	if (aux == NULL)
 		aux = "(null)";
 	s_len = _strlen(aux);

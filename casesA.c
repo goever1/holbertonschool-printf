@@ -1,12 +1,14 @@
-#e - function for c case
+#include "main.h"
+#include <stdarg.h>
 /**
-* @ap: Character
-* @buff: buffer
-* @print_len: Actual position of buff
-* Return: Last position on buff
+ * c_case - function for c case
+ * @ls: Character
+ * @buff: buffer
+ * @print_len: Actual position of buff
+ * Return: Last position on buff
  */
 
-int c_case(va_list ap, char *buff, int print_len)
+int c_case(va_list ls, char *buff, int print_len)
 {
 	char *c;
 
@@ -22,7 +24,7 @@ int c_case(va_list ap, char *buff, int print_len)
 	/**
 	 *Return the current position of the buffer
 	 */
-	c[0] = va_arg(ap, int);
+	c[0] = va_arg(ls, int);
 /**
  *Retrieve the character argument from the argument lis
  */
@@ -54,19 +56,19 @@ int c_case(va_list ap, char *buff, int print_len)
 
 /**
  * s_case - function for s case
- * @ap: String
+ * @ls: String
  * @buff: buffer
  * @print_len: actual position of buff
  * Return: Last position on buff
  */
 
-int s_case(va_list ap, char *buff, int print_len)
+int s_case(va_list ls, char *buff, int print_len)
 {
 	char *s;
 	char *aux;
 	int s_len;
 
-	aux = va_arg(ap, char*);
+	aux = va_arg(ls, char*);
 	/**
 	 *Retrieve the string argument from the argument list
 	 */
@@ -115,19 +117,19 @@ int s_case(va_list ap, char *buff, int print_len)
 
 /**
  * dec_case - function for d case
- * @ap: Decimal
+ * @ls: Decimal
  * @buff: buffer
  * @print_len : actual position of buff
  * Return: Last position on buff
  */
 
-int dec_case(va_list ap, char *buff, int print_len)
+int dec_case(va_list ls, char *buff, int print_len)
 {
-       char *s;
+	char *s;
 	char *aux;
 	int s_len, num;
 
-	num = va_arg(ap, int);
+	num = va_arg(ls, int);
 	/**
 	 *Retrieve the integer argument from the argument list
 	 */
@@ -168,6 +170,7 @@ int dec_case(va_list ap, char *buff, int print_len)
 	 *Copy the string to the allocated memory
 	 */
 	print_len = replace(buff, s, print_len);
+	return (print_len);
 	/**
 	 *Replace the format specifier with the string in the buffer
 	 */
@@ -179,101 +182,88 @@ int dec_case(va_list ap, char *buff, int print_len)
 }
 	/**
 perc_case - function for % case
-@ap: Unused
+@ls: Unused
 @buff: buffer
 @print_len: Actual position of buff
 Return: Last position on buff
 	*/
-	int perc_case(va_list attribute((unused)) ap, char *buff, int print_len)
-	{
-		/**
-		 *Allocate memory for a single character and a null terminator
-		 */
-		char *c;
-		c = malloc((sizeof(char) + 1));
-		/**
-		 *Check if allocation was successful
-		 */
-		if (c == NULL)
-			return (1);
-
-/**
- *Set the character to '%'
- */
-		c[0] = '%';
-		c[1] = '\0';
-/**
-   *Replace the corresponding placeholder in the buffer with the character
-   */
-		print_len = replace(buff, c, print_len);
-/**
- *Free the memory allocated for the character
- */
-		free(c);
-		return (print_len);
-	}
-
+int perc_case(va_list __attribute__((unused)) ls, char *buff, int print_len)
+{
 	/**
+	 * Allocate memory for a single character and a null terminator
+	 */
+	char *c;
 
-bin_case - function for binary case
-@ap: integer to convert into binary
-@buff: buffer
-@print_len : actual position of buff
-Return: Last position on buff
-	*/
-	int bin_case(va_list ap, char *buff, int print_len)
-	{
-		char *s;
-		char *aux;
-		int s_len, num;
+	c = malloc((sizeof(char) + 1));
+	if (c == NULL)
+		return (1);
+	c[0] = '%';
+	c[1] = '\0';
+	print_len = replace(buff, c, print_len);
+	free(c);
+	return (print_len);
+}
+/**
+ * bin_case - function for binary case
+ * @ls: integer to convert into binary
+ * @buff: buffer
+ * @print_len : actual position of buff
+ * Return: Last position on buff
+ */
+int bin_case(va_list ls, char *buff, int print_len)
+{
+	char *s;
+	char *aux;
+	int s_len, num;
 /**
  *Get the integer argument from the variable arguments list
  */
-		num = va_arg(ap, int);
+	num = va_arg(ls, int);
 
 /**
  *Allocate memory for a string representation of the binary number
  */
-		aux = malloc(sizeof(char) * 35);
+	aux = malloc(sizeof(char) * 35);
 
 		/**
 		 *Check if allocation was successful
 		 */
 	if (aux == NULL)
-			return (1);
+		return (1);
 /**
  *Convert the integer to a binary string representation
  */
-aux = _itoa(num, aux, 2);
+	aux = _itoa(num, aux, 2);
 /**
 *Get the length of the binary string
 */
-		s_len = _strlen(aux);
+	s_len = _strlen(aux);
 
 /**
  *Allocate memory for the final string representation of the binary number
  */
-		s = malloc((sizeof(char) * s_len) + 1);
+	s = malloc((sizeof(char) * s_len) + 1);
 /**
  *Check if allocation was successful
  */
-		if (s == NULL)
-			return (1);
+	if (s == NULL)
+		return (1);
 
 /**
  *Copy the binary string to the final string representation
  */
-		_strcpy(s, aux);
+	_strcpy(s, aux);
 
    /**
  *Replace the corresponding placeholder in the buffer with
  *the final string representation
  */
-print_len = replace(buff, s, print_len);
+	print_len = replace(buff, s, print_len);
 
 /**
  *Free the memory allocated for the string representations
  */
-free(s);
-free(aux);
-return (print_len);
+	free(s);
+	free(aux);
+	return (print_len);
+}
