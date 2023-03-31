@@ -1,4 +1,8 @@
 #include "main.h"
+<<<<<<< HEAD
+=======
+#include <stdarg.h>
+>>>>>>> 21173e4d194e7dd3c15e0dd65f73df075fbfe177
 /**
  *c_case - function for c case
 * @ls: Character
