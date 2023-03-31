@@ -1,4 +1,5 @@
-#e - function for c case
+#include "main.h"
+#include <stdarg.h>
 /**
 * @ap: Character
 * @buff: buffer
