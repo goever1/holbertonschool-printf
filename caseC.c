@@ -21,7 +21,7 @@ int r_case(va_list ap, char *buff, int print_len)
 		return (1);
 	_strcpy(s, aux);
 	rev_string(s);
-	print_len = replace(buff, s, print:len);
+	print_len = replace(buff, s, print_len);
 	free(s);
 	return (print_len);
 }
@@ -47,7 +47,7 @@ int R_case(va_list ap, char *buff, int print_len)
 		return (1);
 	_strcpy(s, aux);
 	rev_string(s);
-	print_len = replace(buff, s, print:len);
+	print_len = replace(buff, s, print_len);
 	free(s);
 	return (print_len);
 }
