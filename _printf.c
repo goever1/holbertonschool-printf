@@ -16,20 +16,23 @@ int _printf(char *format, ...)
 			|| (format[0] == '\\' && format[1] == '\0'))
 		return (-1);
 	va_start(ls, format);
-	for (; format[i] != '\0'; ++i)
+	for (;format[i] != '\0'; ++i)
 	{
 		if (format[i] != '%')
 		{
 			buffer[print_len] = format[i];
 			print_len += 1;
 		}
-		con = get_print_cases(&(format[i + 1]));
-		if (con != NULL)
-			print_len = con(ls, &buffer[print_len], print_len);
 		else
 		{
-			buffer[print_len] = format[1];
-			print_len += 1;
+			con = get_print_cases(&(format[i + 1]));
+			if (con != NULL)
+				print_len = con(ls, &buffer[print_len], print_len);
+			else
+			{
+				buffer[print_len] = format[1];
+				print_len += 1;
+			}
 		}
 	}
 	write(1, buffer, print_len);
