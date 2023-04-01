@@ -6,8 +6,7 @@
  */
 int _printf(char *format, ...)
 {
-	int i = 0;
-	size_t print_len = 0;
+	int i = 0, print_len = 0;
 	va_list ls;
 	char buffer[2048];
 	int (*con)(va_list, char *, int);
@@ -16,26 +15,26 @@ int _printf(char *format, ...)
 			|| (format[0] == '\\' && format[1] == '\0'))
 		return (-1);
 	va_start(ls, format);
-	while (format && format[i])
+	while (format[i])
 	{
 		if (format[i] != '%')
 		{
 			buffer[print_len] = format[i];
-			print_len += 1;
+			print_len ++;
 		}
 		else
 		{
-			con = get_print_cases(&(format[i + 1]));
+			con = get_print_cases(format[i + 1]);
 			if (con != NULL)
 			{
-				print_len = con(ls, &buffer[print_len], print_len);
+
+				buffer[print_len] = '%';
 				i++;
+				print_len++;
+				continue;
 			}
-			else
-			{
-				buffer[print_len] = format[1];
-				print_len += 1;
-			}
+			print_len = con(&buffer[print_len], print_len, ls);
+			i++;
 		}
 		i++;
 	}
