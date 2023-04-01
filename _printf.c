@@ -34,7 +34,7 @@ int _printf(char *format, ...)
 				print_len++;
 				continue;
 			}
-			print_len = con(*(buffer[print_len], print_len, ls));
+			print_len = con(ls, &buffer[print_len], print_len);
 			i++;
 		}
 		i++;
