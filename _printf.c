@@ -29,7 +29,7 @@ int _printf(char *format, ...)
 			if (con != NULL)
 			{
 				print_len = con (ls, &buffer[print_len], print_len);
-				i++
+				i++;
 			}
 			else
 			{
