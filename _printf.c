@@ -28,14 +28,14 @@ int _printf(char *format, ...)
 			con = get_print_cases(&(format[i + 1]));
 			if (con != NULL)
 			{
-
-				buffer[print_len] = '%';
-				i++;
-				print_len++;
-				continue;
+				print_len = con (ls, &buffer[print_len], print_len);
+				i++
 			}
-			print_len = con(&buffer[print_len], print_len, ls);
-			i++;
+			else
+			{
+				buffer[print_len] = format[i];
+				print_len++;
+			}
 		}
 		i++;
 	}
