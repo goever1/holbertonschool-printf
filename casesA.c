@@ -34,45 +34,11 @@ int c_case(va_list ls, char *buff, int print_len)
 
 int s_case(va_list ls, char *buff, int print_len)
 {
-	char *s;
-	char *aux;
-	int s_len;
-
-	aux = va_arg(ls, char*);
-	if (aux == NULL)
-		aux = "(null)";
-	s_len = _strlen(aux);
-/**
- *Calculate the length of the string
- */
-	s = malloc((sizeof(char) * s_len) + 1);
-/**
- *Allocate memory to store the string
- */
-	if (s == NULL)
-		/**
-		 *Check if memory allocation was successful
-		 */
-		return (1);
-/**
-*Return an error
-*/
-	_strcpy(s, aux);
-	/**
-	 *Copy the string to the allocated memory
-	 */
-	print_len = replace(buff, s, print_len);
-	/**
-	 *Replace the format specifier with the string in the buffer
-	 */
-	free(s);
-	/**
-	 *Free the allocated memory
-	 */
-	return (print_len);
-	/**
-	 *Return the last position of the buffer
-	 */
+	char *str = va_arg(ls, char*);
+	
+	if (!str)
+		str = "(null)";
+	return (replace(buff, str, print_len));
 }
 
 /**
