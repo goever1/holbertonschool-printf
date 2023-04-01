@@ -16,7 +16,7 @@ int _printf(char *format, ...)
 			|| (format[0] == '\\' && format[1] == '\0'))
 		return (-1);
 	va_start(ls, format);
-	for (;format[i] != '\0'; ++i)
+	while (format && format[i])
 	{
 		if (format[i] != '%')
 		{
@@ -37,6 +37,7 @@ int _printf(char *format, ...)
 				print_len += 1;
 			}
 		}
+		i++;
 	}
 	write(1, buffer, print_len);
 	va_end(ls);
