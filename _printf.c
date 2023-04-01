@@ -24,7 +24,7 @@ int _printf(char *format, ...)
 		}
 		else
 		{
-			con = get_print_cases(format[i + 1]);
+			con = get_print_cases(*(format[i + 1]));
 			if (con != NULL)
 			{
 
@@ -33,7 +33,7 @@ int _printf(char *format, ...)
 				print_len++;
 				continue;
 			}
-			print_len = con(&buffer[print_len], print_len, ls);
+			print_len = con(*buffer[print_len], print_len, ls);
 			i++;
 		}
 		i++;
