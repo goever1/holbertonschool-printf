@@ -46,26 +46,3 @@ void rev_string(char *s)
 		i = i - 1;
 	}
 }
-/**
- * rot13 - code a string using rot13
- * @s: string
- * return: pointer to coded string
- */
-char *_rot13(char *str)
-{
-	int i, j;
-	char chs[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-	char rot[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
-
-	for (i = 0; str[i]; ++i)
-	{
-		for (j = 0; chs[j]; ++j)
-		{
-			if (str[i] == chs[j])
-			{str[i] = rot[j];
-				break;
-			}
-		}
-	}
-	return (str);
-}

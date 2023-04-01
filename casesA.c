@@ -13,45 +13,15 @@ int c_case(va_list ls, char *buff, int print_len)
 	char *c;
 
 	c = malloc((sizeof(char) + 1));
-/**
- *Allocate memory to store a character
- */
 	if (c == NULL)
-		/**
-		 *Check if memory allocation was successful
-		 */
 		return (print_len);
-	/**
-	 *Return the current position of the buffer
-	 */
 	c[0] = va_arg(ls, int);
-/**
- *Retrieve the character argument from the argument lis
- */
 	if (c[0] == 0)
-		/**
-		 *Check if the character is null
-		 */
 		print_len += 1;
-	/**
-	 *Increment the position of the buffer to include the null character
-	 */
 	c[1] = '\0';
-	/**
-	 *Add null character to terminate the string
-	 */
 	print_len = replace(buff, c, print_len);
-	/**
-	 *Replace the format specifier with the character in the buffer
-	 */
 	free(c);
-	/**
-	 *Free the allocated memory
-	 */
 	return (print_len);
-	/**
-	 *Return the last position of the buffer
-	 */
 }
 
 /**
@@ -69,18 +39,8 @@ int s_case(va_list ls, char *buff, int print_len)
 	int s_len;
 
 	aux = va_arg(ls, char*);
-	/**
-	 *Retrieve the string argument from the argument list
-	 */
 	if (aux == NULL)
-		/**
-		 *Check if the string is null
-		 */
-
 		aux = "(null)";
-	/**
-	 *If so, assign the string "(null)"
-	 */
 	s_len = _strlen(aux);
 /**
  *Calculate the length of the string
@@ -181,11 +141,11 @@ int dec_case(va_list ls, char *buff, int print_len)
 	free(aux);
 }
 	/**
-perc_case - function for % case
-@ls: Unused
-@buff: buffer
-@print_len: Actual position of buff
-Return: Last position on buff
+	 * perc_case - function for % case
+	 * @ls: Unused
+	 * @buff: buffer
+	 * @print_len: Actual position of buff
+	 * Return: Last position on buff
 	*/
 int perc_case(va_list __attribute__((unused)) ls, char *buff, int print_len)
 {

@@ -28,15 +28,7 @@ int perc_case(va_list, char *, int);
 int bin_case(va_list, char *, int);
 int dec_case(va_list, char *, int);
 int uns_case(va_list, char *, int);
-int oct_case(va_list, char *, int);
-int lhex_case(va_list, char *, int);
-int uhex_case(va_list, char *, int);
-int r_case(va_list ls, char *buff, int print_len);
-int S_case(va_list ls, char *buff, int print_len);
-int R_case(va_list ls, char *buff, int print_len);
 int _strlen(char *s);
 char *_strcpy(char *dest, char *src);
 void rev_string(char *s);
-char *rot13(char *s);
-
 #endif

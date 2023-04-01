@@ -9,16 +9,8 @@ int (*get_print_cases(char *arg))(va_list, char *, int)
 		{"%", perc_case},
 		{"d", dec_case},
 		{"i", dec_case},
-		{"b", bin_case},
-		{"u", uns_case},
-		{"o", oct_case},
-		{"x", lhex_case},
-		{"X", uhex_case},
-		{"S", S_case},
-		{"r", r_case},
-		{"R", R_case}
 	};
-	for (;i < 13; ++i)
+	for (;i < 5; ++i)
 	{
 		if (*arg == *(formats[i]).pfcase)
 			return ((formats[i].convfun));
