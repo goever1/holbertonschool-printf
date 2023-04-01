@@ -1,4 +1,9 @@
 #include "main.h"
+/**
+ * get_print_cases - check cases
+ * @arg: str
+ * Return: int
+ */
 int (*get_print_cases(char *arg))(va_list, char *, int)
 {
 	int i = 0;
@@ -10,7 +15,7 @@ int (*get_print_cases(char *arg))(va_list, char *, int)
 		{"d", dec_case},
 		{"i", dec_case},
 	};
-	for (;i < 5; ++i)
+	for (; i < 5; ++i)
 	{
 		if (*arg == *(formats[i]).pfcase)
 			return ((formats[i].convfun));

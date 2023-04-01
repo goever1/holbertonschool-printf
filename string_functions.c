@@ -8,8 +8,8 @@ int _strlen(char *s)
 {
 	int i = 0, len = 0;
 
-	for(; s[i] != '\0'; ++i)
-		len =+ 1;
+	for (; s[i] != '\0'; ++i)
+		len++;
 	return (len);
 }
 /**
@@ -38,7 +38,7 @@ void rev_string(char *s)
 
 	i = _strlen(s) - 1;
 	j = 0;
-	for (; i >=j; ++j)
+	for (; i >= j; ++j)
 	{
 		c = *(s + j);
 		*(s + j) = *(s + i);

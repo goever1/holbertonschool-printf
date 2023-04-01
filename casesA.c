@@ -35,6 +35,7 @@ int c_case(va_list ls, char *buff, int print_len)
 int s_case(va_list ls, char *buff, int print_len)
 {
 	char *str = va_arg(ls, char*);
+	
 	if (!str)
 		str = "(null)";
 	return (replace(buff, str, print_len));

@@ -4,7 +4,7 @@
  * @num: integer to convert
  * @s: pointer
  * @base: base to convert int
- * Returns: Pointer s
+ * Return: Pointer s
  */
 char *_itoa(int num, char *s, unsigned int base)
 {
