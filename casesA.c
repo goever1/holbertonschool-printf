@@ -52,12 +52,9 @@ int s_case(va_list ls, char *buff, int print_len)
 int dec_case(va_list ls, char *buff, int print_len)
 {
 	int base = 10;
-	unsigned int inte;
-	char *str;
+	char *str = _itoa(va_arg(value, int),base);
 	
-	inte = va_arg(ls, unsigned int);
-	str = _utoa(inte, base);
-	return (replace(buff, print_len, ls));
+	return (replace(buff, print_len, str));
 }
 /**
  *  perc_case - function for % case
