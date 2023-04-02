@@ -52,7 +52,7 @@ int s_case(va_list ls, char *buff, int print_len)
 int dec_case(va_list ls, char *buff, int print_len)
 {
 	int base = 10;
-	int arg = va_arg(ls, int)
+	int arg = va_arg(ls, int);
 	char str[20]; 
 	_itoa(arg, str, base);
 	
