@@ -51,24 +51,13 @@ int s_case(va_list ls, char *buff, int print_len)
 
 int dec_case(va_list ls, char *buff, int print_len)
 {
-	char *s;
-	char *aux;
-	int s_len, num;
-
-	num = va_arg(ls, int);
-	aux = malloc(sizeof(char) * 35);
-	if (aux == NULL)
-		return (1);
-	aux = _itoa(num, aux, 10);
-	s_len = _strlen(aux);
-	s = malloc((sizeof(char) * s_len) + 1);
-	if (s == NULL)
-		return (1);
-	_strcpy(s, aux);
-	print_len = replace(buff, s, print_len);
-	return (print_len);
-	free(s);
-	free(aux);
+	int base = 10;
+	unsigned int inte;
+	char *str;
+	
+	inte = va_arg(value, unsigned int);
+	str = _utoa(inte, base);
+	return (replace(buff, count, str));
 }
 /**
  *  perc_case - function for % case
